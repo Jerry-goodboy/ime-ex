@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ime</title>
+	<script src="jquery.js"></script>
+	<style>
+		.cslcd-ime-show-box {
+			border: 1px solid #ddd;
+			box-shadow: 0 0 5px #aaa;
+			width: auto;
+		}
+		.cslcd-ime-show-box ul {
+			list-style: none;
+			padding: none;
+			margin: none;
+		}
+		.cslcd-ime-show-box ul li {
+			float: left;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="ime-input">
+	<div id="ime-show-box" class="cslcd-ime-show-box">
+		<ul>
+			<li><span></span><span></span></li>
+			<li><span></span><span></span></li>
+			<li><span></span><span></span></li>
+			<li><span></span><span></span></li>
+			<li><span></span><span></span></li>
+		</ul>
+	</div>
+	<script>
+		$(function () {
+			var $imeinput = $('#ime-input');
+			var $imeshowbox = $('#ime-show-box');
+			$imeinput.on("focus", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				var $e = $(e.target);
+				var inputHeight = $e.height();
+				var inputWidth = $e.width();
+				console.log(inputHeight + ' ' + inputWidth);
+			});
+		});
+	</script>
+</body>
+</html>
